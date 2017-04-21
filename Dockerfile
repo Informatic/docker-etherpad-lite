@@ -34,9 +34,10 @@ ADD config/ /src/etherpad/
 
 # Install plugins
 RUN npm install \
-    ep_headings \
-    ep_monospace_default \
-    ep_print
+    ep_headings2 \
+    ep_author_neat \
+    Informatic/ep_markdownify#patch-1 \
+    ep_monospace_default
 
 
 RUN useradd etherpad
