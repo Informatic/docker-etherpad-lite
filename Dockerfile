@@ -39,6 +39,9 @@ RUN npm install \
     ep_print
 
 
+RUN useradd etherpad
+USER etherpad
+
 EXPOSE 9001
 VOLUME ["/data"]
 

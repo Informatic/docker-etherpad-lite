@@ -15,4 +15,4 @@ fi
 # required due to Settings.js
 cp $SETTINGS_FILE settings.json
 
-bin/run.sh --root
+bin/run.sh
