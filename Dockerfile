@@ -37,10 +37,7 @@ ADD config/ /src/etherpad/
 RUN npm install \
     ep_headings2 \
     ep_author_neat \
-    ep_tasklist \
-    Informatic/ep_markdownify#patch-1 \
-    ep_monospace_default
-
+    Informatic/ep_markdownify#patch-1
 
 RUN useradd etherpad
 USER etherpad
