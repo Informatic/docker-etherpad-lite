@@ -4,7 +4,7 @@
 # Based on instructions from https://github.com/ether/etherpad-lite
 #
 
-FROM node:0.12
+FROM node:9
 
 MAINTAINER Johannes Bornhold <johannes@bornhold.name>
 
@@ -17,10 +17,11 @@ WORKDIR /src
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get -y install \
     gzip git-core curl python libssl-dev pkg-config build-essential zip unzip
 
-RUN wget https://github.com/ether/etherpad-lite/archive/master.zip &&\
-    unzip master &&\
-    rm -f master.zip &&\
-    mv etherpad-lite-master etherpad &&\
+ARG EP_VERSION=1.6.5
+RUN wget https://github.com/ether/etherpad-lite/archive/release/$EP_VERSION.zip -O release.zip &&\
+    unzip release.zip &&\
+    rm -f release.zip &&\
+    mv etherpad-lite-release-$EP_VERSION etherpad &&\
     sed '/installDeps.sh/d' etherpad/bin/run.sh -i
 
 WORKDIR /src/etherpad
@@ -36,6 +37,7 @@ ADD config/ /src/etherpad/
 RUN npm install \
     ep_headings2 \
     ep_author_neat \
+    ep_tasklist \
     Informatic/ep_markdownify#patch-1 \
     ep_monospace_default
 
