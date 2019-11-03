@@ -15,9 +15,9 @@ WORKDIR /src
 
 # Dependencies based on docs
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get -y install \
-    gzip git-core curl python libssl-dev pkg-config build-essential zip unzip
+    gzip git-core curl python libssl-dev pkg-config build-essential zip unzip pwgen
 
-ARG EP_VERSION=1.6.5
+ARG EP_VERSION=1.6.6
 RUN wget https://github.com/ether/etherpad-lite/archive/release/$EP_VERSION.zip -O release.zip &&\
     unzip release.zip &&\
     rm -f release.zip &&\

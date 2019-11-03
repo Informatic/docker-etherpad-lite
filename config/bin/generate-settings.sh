@@ -1,7 +1,6 @@
 #!/bin/bash
 
 EP_TITLE=${EP_TITLE:-Etherpad}
-EP_SESSION_KEY=${EP_SESSION_KEY:-`node -p "require('crypto').randomBytes(32).toString('hex')"`}
 
 
 cat <<END_OF_TEMPLATE
@@ -21,10 +20,6 @@ cat <<END_OF_TEMPLATE
   //IP and port which etherpad should bind at
   "ip": "0.0.0.0",
   "port" : 9001,
-
-  // Session Key, used for reconnecting user sessions
-  // Set this to a secure string at least 10 characters long.  Do not share this value.
-  "sessionKey" : "${EP_SESSION_KEY}",
 
   /*
   // Node native SSL support
